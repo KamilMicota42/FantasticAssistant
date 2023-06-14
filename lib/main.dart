@@ -1,7 +1,9 @@
-import 'package:fantastic_assistant/cubits/MainNavigation/main_navigation.dart';
-import 'package:fantastic_assistant/utils/colors.dart';
-import 'package:fantastic_assistant/views/register_or_login.dart';
 import 'package:flutter/material.dart';
+import 'package:fantastic_assistant/cubits/MainNavigation/main_navigation.dart';
+import 'package:fantastic_assistant/views/register.dart';
+import 'package:fantastic_assistant/views/register_or_login.dart';
+
+import 'package:fantastic_assistant/utils/colors.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -32,13 +34,16 @@ class MyApp extends StatelessWidget {
         ],
         child: BlocBuilder<MainNavigationCubit, int>(
           builder: (context, mainNavigationIndex) {
-            return Navigator(
-              pages: [
-                if (mainNavigationIndex == 0) const MaterialPage(child: RegisterOrLoginView()),
-              ],
-              onPopPage: (route, result) {
-                return route.didPop(result);
-              },
+            return Scaffold(
+              body: Navigator(
+                pages: [
+                  if (mainNavigationIndex == 0) const MaterialPage(child: RegisterOrLoginView()),
+                  if (mainNavigationIndex == 1) const MaterialPage(child: RegisterView()),
+                ],
+                onPopPage: (route, result) {
+                  return route.didPop(result);
+                },
+              ),
             );
           },
         ),
