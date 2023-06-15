@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fantastic_assistant/cubits/MainNavigation/main_navigation.dart';
-import 'package:fantastic_assistant/views/register.dart';
-import 'package:fantastic_assistant/views/register_or_login.dart';
+import 'package:fantastic_assistant/views/sign_in.dart';
+import 'package:fantastic_assistant/views/sign_in_or_login.dart';
 
 import 'package:fantastic_assistant/utils/colors.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -23,7 +23,6 @@ class MyApp extends StatelessWidget {
       title: 'Fantastic Assistant',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: MyColors.iris),
         useMaterial3: true,
       ),
       home: MultiBlocProvider(
@@ -37,8 +36,8 @@ class MyApp extends StatelessWidget {
             return Scaffold(
               body: Navigator(
                 pages: [
-                  if (mainNavigationIndex == 0) const MaterialPage(child: RegisterOrLoginView()),
-                  if (mainNavigationIndex == 1) const MaterialPage(child: RegisterView()),
+                  if (mainNavigationIndex == 0) const MaterialPage(child: SignInOrLoginView()),
+                  if (mainNavigationIndex == 1) const MaterialPage(child: SignInView()),
                 ],
                 onPopPage: (route, result) {
                   return route.didPop(result);

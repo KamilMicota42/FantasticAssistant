@@ -8,16 +8,16 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:fantastic_assistant/utils/colors.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class RegisterOrLoginView extends StatefulWidget {
-  const RegisterOrLoginView({super.key});
+class SignInOrLoginView extends StatefulWidget {
+  const SignInOrLoginView({super.key});
 
   @override
-  State<RegisterOrLoginView> createState() => _RegisterOrLoginViewState();
+  State<SignInOrLoginView> createState() => _RegisterOrLoginViewState();
 }
 
-class _RegisterOrLoginViewState extends State<RegisterOrLoginView> {
-  int _current = 0;
+class _RegisterOrLoginViewState extends State<SignInOrLoginView> {
   final CarouselController _controller = CarouselController();
+  int _current = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +55,7 @@ class _RegisterOrLoginViewState extends State<RegisterOrLoginView> {
                       ClipRRect(
                         borderRadius: BorderRadius.circular(10),
                         child: Image.asset(
-                          'lib/assets/images/image$i.png',
+                          'lib/assets/images/image$i.png', // TODO: change into AI generated images
                           fit: BoxFit.contain,
                         ),
                       ),
