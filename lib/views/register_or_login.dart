@@ -1,6 +1,7 @@
 import 'package:fantastic_assistant/cubits/MainNavigation/main_navigation.dart';
 import 'package:fantastic_assistant/utils/styles.dart';
 import 'package:fantastic_assistant/widgets/default_button.dart';
+import 'package:fantastic_assistant/widgets/texture_background.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
@@ -27,19 +28,7 @@ class _RegisterOrLoginViewState extends State<RegisterOrLoginView> {
       'Unleash epic narratives, shape destiny, and immerse yourself in a world of endless possibilities.'
     ];
 
-    return Container(
-      height: MediaQuery.of(context).size.height,
-      decoration: const BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: [
-            MyColors.roseRed,
-            MyColors.black,
-          ],
-          stops: [0.2192, 0.6798],
-        ),
-      ),
+    return TextureBackgroundContainer(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
