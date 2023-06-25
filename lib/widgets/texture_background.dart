@@ -19,7 +19,7 @@ class _TextureBackgroundContainerState extends State<TextureBackgroundContainer>
           width: MediaQuery.of(context).size.width,
           child: Image.asset(
             'lib/assets/images/background_texture.png',
-            fit: BoxFit.fitHeight,
+            fit: BoxFit.fill,
           ),
         ),
         Container(
