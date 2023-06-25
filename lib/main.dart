@@ -1,4 +1,6 @@
 import 'package:fantastic_assistant/cubits/AuthFlowNavigation/auth_flow_navigation.dart';
+import 'package:fantastic_assistant/cubits/CircularLoading/circular_loading.dart';
+import 'package:fantastic_assistant/utils/colors.dart';
 import 'package:fantastic_assistant/views/authFlow/auth_page.dart';
 import 'package:flutter/material.dart';
 import 'package:fantastic_assistant/cubits/MainNavigation/main_navigation.dart';
@@ -35,10 +37,34 @@ class MyApp extends StatelessWidget {
           BlocProvider(
             create: (context) => MainNavigationCubit(),
           ),
+          BlocProvider(
+            create: (context) => CircularLoadingCubit(),
+          ),
         ],
         child: BlocBuilder<MainNavigationCubit, int>(
           builder: (context, mainNavigationIndex) {
-            return const AuthPage();
+            return Stack(
+              children: [
+                const AuthPage(),
+                BlocBuilder<CircularLoadingCubit, bool>(
+                  builder: (context, state) {
+                    if (state == true) {
+                      return const Center(
+                        child: SizedBox(
+                          height: 60,
+                          width: 60,
+                          child: CircularProgressIndicator(
+                            color: MyColors.white,
+                          ),
+                        ),
+                      );
+                    } else {
+                      return const SizedBox();
+                    }
+                  },
+                ),
+              ],
+            );
           },
         ),
       ),

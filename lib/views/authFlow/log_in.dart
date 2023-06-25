@@ -1,5 +1,5 @@
 import 'package:fantastic_assistant/cubits/AuthFlowNavigation/auth_flow_navigation.dart';
-import 'package:fantastic_assistant/logic/log_user_in.dart';
+import 'package:fantastic_assistant/logic/auth/log_user_in.dart';
 import 'package:fantastic_assistant/utils/colors.dart';
 import 'package:fantastic_assistant/utils/styles.dart';
 import 'package:fantastic_assistant/widgets/default_button.dart';
@@ -84,7 +84,7 @@ class _LogInViewState extends State<LogInView> {
                   DefaultButton(
                     text: "Log in",
                     function: () {
-                      logUserIn(emailController.text, passwordController.text);
+                      logUserIn(emailController.text, passwordController.text, context);
                     },
                     width: MediaQuery.of(context).size.width - 50,
                     height: 56,

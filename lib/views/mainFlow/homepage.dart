@@ -1,4 +1,4 @@
-import 'package:fantastic_assistant/logic/log_user_out.dart';
+import 'package:fantastic_assistant/logic/auth/log_user_out.dart';
 import 'package:flutter/material.dart';
 
 class HomePageView extends StatelessWidget {
