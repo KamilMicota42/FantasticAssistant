@@ -1,15 +1,17 @@
+import 'package:fantastic_assistant/cubits/AuthFlowNavigation/auth_flow_navigation.dart';
+import 'package:fantastic_assistant/views/authFlow/auth_page.dart';
 import 'package:flutter/material.dart';
 import 'package:fantastic_assistant/cubits/MainNavigation/main_navigation.dart';
-import 'package:fantastic_assistant/views/sign_in.dart';
-import 'package:fantastic_assistant/views/sign_in_or_login.dart';
 
-import 'package:fantastic_assistant/utils/colors.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
 
   runApp(const MyApp());
 }
@@ -28,22 +30,15 @@ class MyApp extends StatelessWidget {
       home: MultiBlocProvider(
         providers: [
           BlocProvider(
+            create: (context) => AuthFlowNavigationCubit(),
+          ),
+          BlocProvider(
             create: (context) => MainNavigationCubit(),
           ),
         ],
         child: BlocBuilder<MainNavigationCubit, int>(
           builder: (context, mainNavigationIndex) {
-            return Scaffold(
-              body: Navigator(
-                pages: [
-                  if (mainNavigationIndex == 0) const MaterialPage(child: SignInOrLoginView()),
-                  if (mainNavigationIndex == 1) const MaterialPage(child: SignInView()),
-                ],
-                onPopPage: (route, result) {
-                  return route.didPop(result);
-                },
-              ),
-            );
+            return const AuthPage();
           },
         ),
       ),

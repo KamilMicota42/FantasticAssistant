@@ -1,41 +1,33 @@
 {
   "project_info": {
-    "project_number": "737633960965",
-    "project_id": "fantastic-assistant-29ac0",
-    "storage_bucket": "fantastic-assistant-29ac0.appspot.com"
+    "project_number": "714556348858",
+    "project_id": "fantasticassistant-7c5a3",
+    "storage_bucket": "fantasticassistant-7c5a3.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:737633960965:android:26e09ee69d2bca1322086c",
+        "mobilesdk_app_id": "1:714556348858:android:2d14a31c0b344170f3e583",
         "android_client_info": {
           "package_name": "com.example.fantastic_assistant"
         }
       },
       "oauth_client": [
         {
-          "client_id": "737633960965-h532b18v3lgicpa97vu5n0fn0l7s44m4.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.fantastic_assistant",
-            "certificate_hash": "ee5c60cd7ccad4ca789c589a41257bd7708e1e12"
-          }
-        },
-        {
-          "client_id": "737633960965-t1ij8gj535os5jn5p9eu46nv7v1cnmk2.apps.googleusercontent.com",
+          "client_id": "714556348858-p5m4p2f1r9dvi0stfenh0sdju0jpuv20.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyB8_eDYLWKdFIR8ONmz_sDcJchn4lOYbQY"
+          "current_key": "AIzaSyCCCtoWRTvqw7BrK3pBhM4LfOaa-0Wyqwo"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "737633960965-t1ij8gj535os5jn5p9eu46nv7v1cnmk2.apps.googleusercontent.com",
+              "client_id": "714556348858-p5m4p2f1r9dvi0stfenh0sdju0jpuv20.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

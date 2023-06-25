@@ -1,4 +1,4 @@
-import 'package:fantastic_assistant/cubits/MainNavigation/main_navigation.dart';
+import 'package:fantastic_assistant/cubits/AuthFlowNavigation/auth_flow_navigation.dart';
 import 'package:fantastic_assistant/utils/styles.dart';
 import 'package:fantastic_assistant/widgets/default_button.dart';
 import 'package:fantastic_assistant/widgets/texture_background.dart';
@@ -8,14 +8,14 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:fantastic_assistant/utils/colors.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class SignInOrLoginView extends StatefulWidget {
-  const SignInOrLoginView({super.key});
+class RegisterOrLoginView extends StatefulWidget {
+  const RegisterOrLoginView({super.key});
 
   @override
-  State<SignInOrLoginView> createState() => _RegisterOrLoginViewState();
+  State<RegisterOrLoginView> createState() => _RegisterOrLoginViewState();
 }
 
-class _RegisterOrLoginViewState extends State<SignInOrLoginView> {
+class _RegisterOrLoginViewState extends State<RegisterOrLoginView> {
   final CarouselController _controller = CarouselController();
   int _current = 0;
 
@@ -30,7 +30,7 @@ class _RegisterOrLoginViewState extends State<SignInOrLoginView> {
 
     return TextureBackgroundContainer(
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           const SizedBox(),
           CarouselSlider(
@@ -120,9 +120,9 @@ class _RegisterOrLoginViewState extends State<SignInOrLoginView> {
           Column(
             children: [
               DefaultButton(
-                text: "Sign in",
+                text: "Register",
                 function: () {
-                  BlocProvider.of<MainNavigationCubit>(context).setMainNavigationIndex(1);
+                  BlocProvider.of<AuthFlowNavigationCubit>(context).setNavigationCubit(1);
                 },
                 width: MediaQuery.of(context).size.width - 50,
                 height: 56,
@@ -136,7 +136,9 @@ class _RegisterOrLoginViewState extends State<SignInOrLoginView> {
                     style: MyTextStyles.spaceGrotesk16regular400,
                   ),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      BlocProvider.of<AuthFlowNavigationCubit>(context).setNavigationCubit(2);
+                    },
                     child: const Text(
                       'Log in',
                       style: MyTextStyles.spaceGrotesk16regular500,
@@ -144,6 +146,7 @@ class _RegisterOrLoginViewState extends State<SignInOrLoginView> {
                   ),
                 ],
               ),
+              const SizedBox(height: 50),
             ],
           ),
         ],
