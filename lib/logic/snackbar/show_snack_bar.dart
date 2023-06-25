@@ -6,11 +6,9 @@ void showSnackBar(String content, BuildContext context) {
   ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(
       backgroundColor: MyColors.white,
-      content: Center(
-        child: Text(
-          content,
-          style: MyTextStyles.spaceGrotesk15regular400black,
-        ),
+      content: Text(
+        content,
+        style: MyTextStyles.spaceGrotesk15regular400black,
       ),
       behavior: SnackBarBehavior.floating,
       shape: RoundedRectangleBorder(

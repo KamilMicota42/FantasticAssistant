@@ -1,4 +1,5 @@
 import 'package:fantastic_assistant/cubits/AuthFlowNavigation/auth_flow_navigation.dart';
+import 'package:fantastic_assistant/logic/auth/sing_user_in.dart';
 import 'package:fantastic_assistant/utils/colors.dart';
 import 'package:fantastic_assistant/utils/styles.dart';
 import 'package:fantastic_assistant/widgets/default_button.dart';
@@ -17,7 +18,7 @@ class _RegisterViewState extends State<RegisterView> {
   bool _isObscure = true;
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
-  final repeatPasswordController = TextEditingController();
+  final confirmPasswordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -33,6 +34,7 @@ class _RegisterViewState extends State<RegisterView> {
                 children: [
                   const SizedBox(height: 100),
                   TextFormField(
+                    controller: emailController,
                     decoration: const InputDecoration(
                       border: UnderlineInputBorder(),
                       labelText: 'E-mail',
@@ -42,6 +44,7 @@ class _RegisterViewState extends State<RegisterView> {
                   ),
                   const SizedBox(height: 20),
                   TextFormField(
+                    controller: passwordController,
                     obscureText: _isObscure,
                     decoration: InputDecoration(
                       border: const UnderlineInputBorder(),
@@ -65,10 +68,11 @@ class _RegisterViewState extends State<RegisterView> {
                   ),
                   const SizedBox(height: 20),
                   TextFormField(
+                    controller: confirmPasswordController,
                     obscureText: _isObscure,
                     decoration: InputDecoration(
                       border: const UnderlineInputBorder(),
-                      labelText: 'Repeat password',
+                      labelText: 'Confirm password',
                       labelStyle: MyTextStyles.spaceGrotesk16regular400,
                       suffixIcon: IconButton(
                         icon: Icon(
@@ -93,7 +97,7 @@ class _RegisterViewState extends State<RegisterView> {
                   DefaultButton(
                     text: "Register",
                     function: () {
-                      BlocProvider.of<AuthFlowNavigationCubit>(context).setNavigationCubit(1);
+                      signUserIn(emailController.text, passwordController.text, confirmPasswordController.text, context);
                     },
                     width: MediaQuery.of(context).size.width - 50,
                     height: 56,
