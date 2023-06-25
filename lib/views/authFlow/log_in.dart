@@ -20,15 +20,6 @@ class _LogInViewState extends State<LogInView> {
   final passwordController = TextEditingController();
 
   @override
-  void dispose() {
-    // Clean up the controller when the widget is removed from the
-    // widget tree.
-    emailController.dispose();
-    passwordController.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return TextureBackgroundContainer(
       child: Center(
@@ -73,6 +64,18 @@ class _LogInViewState extends State<LogInView> {
                       ),
                     ),
                     style: MyTextStyles.spaceGrotesk16regular500,
+                  ),
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: TextButton(
+                      onPressed: () {
+                        BlocProvider.of<AuthFlowNavigationCubit>(context).setNavigationCubit(3);
+                      },
+                      child: const Text(
+                        'Forgot password?',
+                        style: MyTextStyles.spaceGrotesk16regular400,
+                      ),
+                    ),
                   ),
                 ],
               ),
